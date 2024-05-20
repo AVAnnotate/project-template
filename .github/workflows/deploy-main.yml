@@ -15,7 +15,7 @@ permissions:
   id-token: write
 
 jobs:
-  checkout:
+  checkout-build-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout project repository
@@ -29,10 +29,6 @@ jobs:
           ref: "main"
           token: ${{ secrets.PA_TOKEN }}
 
-  build:
-    needs: checkout
-    runs-on: ubuntu-latest
-    steps:
       - name: npm install
         working-directory: "./client"
         run: npm install
@@ -50,13 +46,9 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+        env:
+          name: github-pages
+          url: ${{ steps.deployment.outputs.page_url }}
