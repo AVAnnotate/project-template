@@ -32,15 +32,19 @@ jobs:
   build:
     needs: checkout
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "./client"
     steps:
       - name: Install, build, and upload your site
         uses: withastro/action@v2
-        with:
-          working-directory: "./client"
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "./client"
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -48,5 +52,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        with:
-          working-directory: "./client"
