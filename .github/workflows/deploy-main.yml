@@ -29,7 +29,7 @@ jobs:
           ref: "main"
           token: ${{ secrets.PA_TOKEN }}
 
-  build:
+  checkout-client:
     needs: checkout
     runs-on: ubuntu-latest
     defaults:
@@ -39,11 +39,29 @@ jobs:
       - name: Install, build, and upload your site
         uses: withastro/action@v2
 
+  build-client:
+    needs: checkout-client
+    runs-on: ubuntu-latest
+      - name: npm install
+        working-directory: './client'
+        run: npm install
+
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5        
+
+      - name: Build Astro Client
+        working-directory: './client'
+        run: npm run build \
+            --site "${{ steps.pages.outputs.origin }}" \
+            --base "${{ steps.pages.outputs.base_path }}"
+            
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3          
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    defaults:
-      run:
         working-directory: "./client"
     environment:
       name: github-pages
