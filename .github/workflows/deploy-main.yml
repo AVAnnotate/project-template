@@ -42,6 +42,7 @@ jobs:
   build-client:
     needs: checkout-client
     runs-on: ubuntu-latest
+    steps:
       - name: npm install
         working-directory: './client'
         run: npm install
