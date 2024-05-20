@@ -32,7 +32,6 @@ jobs:
   build:
     needs: checkout
     runs-on: ubuntu-latest
-    working-directory: "./client"
     steps:
       - name: Install, build, and upload your site
         uses: withastro/action@v2
