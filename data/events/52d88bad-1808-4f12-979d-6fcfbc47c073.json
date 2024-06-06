@@ -1,8 +1,4 @@
 {
-  "event": {
-    "label": "S1576, T86-243",
-    "item_type": "Audio"
-  },
   "audiovisual_files": [
     {
       "label": "S1576, T86-243",
@@ -10,7 +6,9 @@
       "duration": 3530
     }
   ],
+  "auto_generate_web_page": true,
   "description": "Lorem ipsum dolor sit amet consectetur. Elit proin tortor egestas ornare. Non in risus proin in augue justo turpis odio bibendum. Aliquam elementum faucibus sit libero sit auctor nulla dictumst. Cursus tincidunt tempor varius id adipiscing odio sapien suspendisse proin. Nunc nunc libero feugiat enim nibh suspendisse. Id etiam convallis quam non nunc sed velit. Tincidunt a adipiscing netus odio.",
   "citation": null,
-  "auto_generate_web_page": true
+  "item_type": "Audio",
+  "label": "S1576, T86-243"
 }
