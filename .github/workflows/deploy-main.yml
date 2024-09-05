@@ -33,6 +33,12 @@ jobs:
         working-directory: "./client"
         run: npm install
 
+      - name: Ensure a content directory
+        run: mkdir -p "./client/src/content"
+
+      - name: Copy data to contebnt directory
+        run: cp -r ./data ./client/src/content
+
       - name: Read in the project file
         id: project
         uses: antifree/json-to-variables@v1.0.1
