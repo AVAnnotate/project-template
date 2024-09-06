@@ -39,6 +39,12 @@ jobs:
       - name: Copy data to contebnt directory
         run: cp -r ./data/* ./client/src/content
 
+      - name: Make a project directory if it does not exist
+        run: mkdir -p "./client/src/content/project"
+
+      - name: Move project.json file to project directory
+        run: mv ./client/src/content/project.json ./client/src/content/project/project.json
+
       - name: Read in the project file
         id: project
         uses: antifree/json-to-variables@v1.0.1
