@@ -37,7 +37,7 @@ jobs:
         run: mkdir -p "./client/src/content"
 
       - name: Copy data to contebnt directory
-        run: cp -r ./data ./client/src/content
+        run: cp -r ./data/* ./client/src/content
 
       - name: Read in the project file
         id: project
