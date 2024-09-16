@@ -27,7 +27,6 @@ jobs:
           repository: AVAnnotate/project-client
           path: "./client"
           ref: "main"
-          token: ${{ secrets.PA_TOKEN }}
 
       - name: npm install
         working-directory: "./client"
