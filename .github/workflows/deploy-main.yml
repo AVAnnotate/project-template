@@ -60,7 +60,7 @@ jobs:
         if: ${{ env.project_project_media_player == 'avannotate' }}
         run: mkdir -p "./client/src/content"
 
-      - name: Copy data to contebnt directory
+      - name: Copy data to content directory
         if: ${{ env.project_project_media_player == 'avannotate' }}
         run: cp -r ./data/* ./client/src/content
 
@@ -71,6 +71,9 @@ jobs:
       - name: Move project.json file to project directory
         if: ${{ env.project_project_media_player == 'avannotate' }}
         run: mv ./client/src/content/project.json ./client/src/content/project/project.json
+
+      - name: Copy any VTT files to public
+        run: cp -r ./data/vtt/* ./client/public        
 
       # Only publish when directed
       - name: Setup Pages
