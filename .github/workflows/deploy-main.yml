@@ -76,7 +76,7 @@ jobs:
         run: mv ./client/src/content/project.json ./client/src/content/project/project.json
 
       - name: Copy any VTT files to public
-        run: cp -r ./data/vtt/ ./client/public        
+        run: cp -r ./data/vtt/. ./client/public/        
 
       # Only publish when directed
       - name: Setup Pages
