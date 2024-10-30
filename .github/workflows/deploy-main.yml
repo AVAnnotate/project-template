@@ -110,6 +110,7 @@ jobs:
         run: |
           rm -rf ./site
           mv ./client/dist ./site
+          cp ./client/static-site-readme.md ./site/README.md
           git config user.email "gitbot@avannotate.com"
           git config user.name "GitHub Action Bot"
           git add ./site
