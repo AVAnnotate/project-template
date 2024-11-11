@@ -43,19 +43,15 @@ jobs:
         run: npm install
 
       - name: Ensure a content directory
-        if: ${{ env.project_project_media_player == 'avannotate' }}
         run: mkdir -p "./client/src/content"
 
       - name: Copy data to content directory
-        if: ${{ env.project_project_media_player == 'avannotate' }}
         run: cp -r ./data/* ./client/src/content
 
       - name: Make a project directory if it does not exist
-        if: ${{ env.project_project_media_player == 'avannotate' }}
         run: mkdir -p "./client/src/content/project"
 
       - name: Move project.json file to project directory
-        if: ${{ env.project_project_media_player == 'avannotate' }}
         run: mv ./client/src/content/project.json ./client/src/content/project/project.json
 
       - name: Copy any VTT files to public
