@@ -70,7 +70,7 @@ jobs:
         run: npx tsx ./client/generate-iiif-3-manifests.ts -d './data' -u "https://${{ github.repository_owner }}.github.io/${{ env.project_project_slug}}" -s 'false'
 
       - name: Build Astro Client
-        uses: withastro/action@v2
+        uses: withastro/action@v3
         with:
           path: "./client"
 
